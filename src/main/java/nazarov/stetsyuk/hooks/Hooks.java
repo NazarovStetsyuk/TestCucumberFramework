@@ -1,8 +1,9 @@
 package nazarov.stetsyuk.hooks;
 
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import nazarov.stetsyuk.utils.TestProperties;
-import org.junit.After;
-import org.junit.Before;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -16,23 +17,22 @@ public class Hooks {
     protected static String baseURL;
 
 
-    public static WebDriver getDriver() { return driver; }
+    public static WebDriver getDriver() {
+        return driver;
+    }
 
-    public Hooks(){ PageFactory.initElements(getDriver(), this); }
+    public Hooks() {
+        PageFactory.initElements(getDriver(), this);
+    }
 
     @Before
-    public static void startScenario(){
-        switch (properties.getProperty("browser")){
-            case "chrome":
-                System.setProperty("webdriver.gecko.driver", properties.getProperty("webdriver.gecko.driver"));
-                driver = new ChromeDriver();
-                break;
-            default:
-                System.setProperty("webdriver.gecko.driver", properties.getProperty("webdriver.gecko.driver"));
-                driver = new ChromeDriver();
-        }
+    public static void startScenario() {
+
+        System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
+        driver = new ChromeDriver();
 
         baseURL = properties.getProperty("app.url");
+        System.out.print(baseURL);
 
         driver.manage().timeouts().implicitlyWait(Long.parseLong(properties.getProperty("implicityWait")), TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(Long.parseLong(properties.getProperty("pageLoad")), TimeUnit.SECONDS);
@@ -42,7 +42,7 @@ public class Hooks {
     }
 
     @After
-    public static void tearDown() throws Exception{
+    public static void tearDown() throws Exception {
         driver.quit();
     }
 }

@@ -1,3 +1,7 @@
-Feature: Hidden links
+#language: ru
 
-Scenario: scenario description
+  Функция: Тест
+
+    Сценарий: Тест
+
+      Когда тест

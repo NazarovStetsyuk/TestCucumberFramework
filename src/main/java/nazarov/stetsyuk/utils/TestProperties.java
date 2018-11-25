@@ -11,7 +11,7 @@ public class TestProperties {
 
     private TestProperties(){
         try {
-            properties.load(new FileInputStream(new File("./" + System.getProperty("enviroment") + ".properties")));
+            properties.load(new FileInputStream(new File("./environment.properties")));
         } catch (IOException e) {
             e.printStackTrace();
         }
