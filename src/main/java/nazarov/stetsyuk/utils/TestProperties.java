@@ -1,10 +1,13 @@
 package nazarov.stetsyuk.utils;
 
+import org.springframework.stereotype.Component;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+@Component
 public class TestProperties {
     private final Properties properties = new Properties();
     private static TestProperties INSTANCE = null;
