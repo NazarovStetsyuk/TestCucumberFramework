@@ -50,7 +50,6 @@ public class CustomFieldDecorator extends DefaultFieldDecorator {
      * Возвращает декорируемый класс поля,
      * либо null, если класс не подходит для декоратора
      */
-
     private Class<Element> decoratableClass(Field field) {
 
         Class<?> clazz = field.getType();

@@ -10,7 +10,7 @@ public class TestPage extends BasePage {
     @FindBy(xpath = "//input[@class='input__control input__input']")
     TextInput Search_Input;
 
-    @FindBy(xpath = "//button[@class='button suggest2-form__button button_theme_websearch button_size_ws-head i-bem button_js_inited']")
+    @FindBy(xpath = "//button[contains(@class,'button suggest2')]")
     Button Search_Button;
 
 }

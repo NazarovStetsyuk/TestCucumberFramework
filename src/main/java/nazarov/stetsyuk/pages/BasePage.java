@@ -42,7 +42,7 @@ public class BasePage implements InitializingBean {
         if (object instanceof Element) {
             return (Element) object;
         } else {
-            throw new RuntimeException(String.format("Object '%s' of Class '%s' is not an instance of TypifiedElement",fieldName,object.getClass()));
+            throw new RuntimeException(String.format("Object '%s' of Class '%s' is not an instance of TypifiedElement", fieldName, object.getClass()));
         }
     }
 

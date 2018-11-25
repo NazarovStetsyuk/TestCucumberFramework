@@ -1,13 +1,10 @@
 package nazarov.stetsyuk.steps;
 
-import nazarov.stetsyuk.controllers.BaseElement;
 import nazarov.stetsyuk.controllers.Element;
 import nazarov.stetsyuk.hooks.Hooks;
 import nazarov.stetsyuk.pages.BasePage;
-import org.openqa.selenium.WebElement;
 import org.reflections.Reflections;
 import ru.yandex.qatools.allure.annotations.Step;
-import sun.reflect.Reflection;
 
 import java.util.Set;
 
