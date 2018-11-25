@@ -1,10 +1,10 @@
 package nazarov.stetsyuk.controllers;
 
-public interface Element {
+public interface  Element {
+
+    String getText(String value);
 
     void setValue(String value);
 
-    String getValue();
-
-    String getText(String value);
+    void click();
 }

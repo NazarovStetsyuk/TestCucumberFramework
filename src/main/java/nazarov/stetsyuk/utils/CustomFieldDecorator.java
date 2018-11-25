@@ -83,7 +83,6 @@ public class CustomFieldDecorator extends DefaultFieldDecorator {
      * Находит WebElement и передает его в кастомный класс
      */
     protected Element createElement(ClassLoader loader, ElementLocator locator, Class<Element> clazz){
-        InvocationHandler handler = new LocatingCustomElementListHandler(locator, clazz);
         WebElement proxy = proxyForLocator(loader, locator);
         return WrapperFactory.createInstance(clazz, proxy);
     }

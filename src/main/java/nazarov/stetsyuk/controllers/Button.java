@@ -8,18 +8,15 @@ public class Button extends BaseElement {
         super(element);
     }
 
-    @Override
-    public void setValue(String value) {
-        throw new UnsupportedOperationException();
-    }
 
-    @Override
-    public String getValue() {
-        return null;
-    }
 
     @Override
     public String getText(String value) {
-        return null;
+        return value;
+    }
+
+    @Override
+    public void setValue(String value) {
+        System.out.println("Ничего");
     }
 }

@@ -32,17 +32,17 @@ public class BasePage implements InitializingBean {
         this.elements = elements;
     }
 
-    public WebElement getFieldSafe(String fieldName) {
+    public Element getFieldSafe(String fieldName) {
         Object object = null;
         try {
             object = getField(fieldName);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (object instanceof WebElement) {
-            return (WebElement) object;
+        if (object instanceof Element) {
+            return (Element) object;
         } else {
-            throw new RuntimeException();
+            throw new RuntimeException(String.format("Object '%s' of Class '%s' is not an instance of TypifiedElement",fieldName,object.getClass()));
         }
     }
 

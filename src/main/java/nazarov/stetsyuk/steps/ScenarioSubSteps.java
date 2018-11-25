@@ -1,7 +1,10 @@
 package nazarov.stetsyuk.steps;
 
+import nazarov.stetsyuk.controllers.BaseElement;
+import nazarov.stetsyuk.controllers.Element;
 import nazarov.stetsyuk.hooks.Hooks;
 import nazarov.stetsyuk.pages.BasePage;
+import org.openqa.selenium.WebElement;
 import org.reflections.Reflections;
 import ru.yandex.qatools.allure.annotations.Step;
 import sun.reflect.Reflection;
@@ -9,6 +12,18 @@ import sun.reflect.Reflection;
 import java.util.Set;
 
 public class ScenarioSubSteps {
+
+    @Step
+    public void stepFieldIsClicked(String fieldName) {
+        Element webElement = (Element) BasePage.currentPage.getFieldSafe(fieldName);
+        webElement.click();
+    }
+
+    @Step
+    public void stepFieldIsFilledWithValue(String fieldName, String value) {
+        Element webElement = (Element) BasePage.currentPage.getFieldSafe(fieldName);
+        webElement.setValue(value);
+    }
 
     @Step("Загружена страница \"pageName\"")
     public void stepPageIsLoaded(String pageName){
