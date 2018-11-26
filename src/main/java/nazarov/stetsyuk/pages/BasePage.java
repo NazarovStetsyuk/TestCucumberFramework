@@ -2,9 +2,7 @@ package nazarov.stetsyuk.pages;
 
 import nazarov.stetsyuk.controllers.Element;
 import nazarov.stetsyuk.utils.CustomFieldDecorator;
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.springframework.beans.factory.InitializingBean;
 

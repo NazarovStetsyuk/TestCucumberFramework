@@ -18,7 +18,7 @@
         <dependency>
             <groupId>ru.stqa.selenium</groupId>
             <artifactId>webdriver-factory</artifactId>
-            <version>4.3</version>
+            <version>4.2</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -198,6 +198,11 @@
         <version>1.2.5</version>
         <scope>compile</scope>
     </dependency>
+        <dependency>
+            <groupId>ru.stqa.selenium</groupId>
+            <artifactId>webdriver-factory</artifactId>
+            <version>1.1.47</version>
+        </dependency>
 
     </dependencies>
     <build>
