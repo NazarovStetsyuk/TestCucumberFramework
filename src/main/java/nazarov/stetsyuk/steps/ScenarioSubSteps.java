@@ -1,5 +1,6 @@
 package nazarov.stetsyuk.steps;
 
+import nazarov.stetsyuk.controllers.BaseElement;
 import nazarov.stetsyuk.controllers.Element;
 import nazarov.stetsyuk.hooks.Hooks;
 import nazarov.stetsyuk.pages.BasePage;
@@ -10,7 +11,6 @@ import org.reflections.Reflections;
 import ru.yandex.qatools.allure.annotations.Step;
 
 import java.util.Set;
-
 import static java.lang.Thread.sleep;
 
 public class ScenarioSubSteps extends BaseSteps{
@@ -19,6 +19,12 @@ public class ScenarioSubSteps extends BaseSteps{
     public void stepFieldIsClicked(String fieldName) {
         Element webElement = (Element) BasePage.currentPage.getFieldSafe(fieldName);
         webElement.click();
+    }
+
+    @Step
+    public void stepElementIsVisible(String fieldName) {
+        BaseElement webElement = (BaseElement) BasePage.currentPage.getFieldSafe(fieldName);
+        Assert.assertTrue(String.format("Элемент <%s> не доступен", fieldName), webElement.isVisible());
     }
 
     @Step("^поле \"(.+)\" заполняется значением \"(.+)\"$")

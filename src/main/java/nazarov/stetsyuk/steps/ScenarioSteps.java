@@ -35,4 +35,10 @@ public class ScenarioSteps extends BaseSteps {
     public void whenPageIsLoaded(String page) {
         subSteps.stepPageIsLoaded(page);
     }
+
+
+    @Then("^элемент \"(.+)\" присутствует$")
+    public void elementIsVisible(String fieldName) {
+        subSteps.stepElementIsVisible(fieldName);
+    }
 }
