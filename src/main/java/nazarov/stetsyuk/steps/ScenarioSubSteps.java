@@ -3,6 +3,7 @@ package nazarov.stetsyuk.steps;
 import nazarov.stetsyuk.controllers.Element;
 import nazarov.stetsyuk.hooks.Hooks;
 import nazarov.stetsyuk.pages.BasePage;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.reflections.Reflections;
@@ -12,23 +13,30 @@ import java.util.Set;
 
 import static java.lang.Thread.sleep;
 
-public class ScenarioSubSteps {
+public class ScenarioSubSteps extends BaseSteps{
 
-    @Step
+    @Step("^выполнено нажатие на поле \"(.+)\"$")
     public void stepFieldIsClicked(String fieldName) {
         Element webElement = (Element) BasePage.currentPage.getFieldSafe(fieldName);
         webElement.click();
     }
 
-    @Step
+    @Step("^поле \"(.+)\" заполняется значением \"(.+)\"$")
     public void stepFieldIsFilledWithValue(String fieldName, String value) {
         Element webElement = (Element) BasePage.currentPage.getFieldSafe(fieldName);
         webElement.setValue(value);
     }
 
-    @Step
-    public void stepMoveCursorToField(String fieldName) {
+    @Step("^поле \"(.+)\" содержит значение \"(.+)\"$")
+    public void stepFieldContainsValue(String fieldName, String expectedValue) {
+        Element element = (Element) BasePage.currentPage.getFieldSafe(fieldName);
+        String actualValue = element.getText().trim();
+        expectedValue = checkVariable(expectedValue);
+        Assert.assertTrue(String.format("\nТекущее значение поля '%s': \n'%s' \nне содержит ожидаемого значения \n'%s'", fieldName, actualValue, expectedValue), actualValue.contains(expectedValue));
+    }
 
+    @Step("^наводим курсор на поле \"(.+)\"$")
+    public void stepMoveCursorToField(String fieldName) {
         Actions action = new Actions(Hooks.getDriver());
         Element webElement = (Element) BasePage.currentPage.getFieldSafe(fieldName);
         action.moveToElement((WebElement) webElement).build().perform();

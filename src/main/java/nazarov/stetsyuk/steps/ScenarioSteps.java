@@ -11,7 +11,7 @@ public class ScenarioSteps extends BaseSteps {
 
     ScenarioSubSteps subSteps = new ScenarioSubSteps();
 
-    @When("^выполнено нажатие на \"(.+)\"$")
+    @When("^выполнено нажатие на поле \"(.+)\"$")
     public void whenFieldIsClicked(String fieldName) {
         subSteps.stepFieldIsClicked(fieldName);
     }
@@ -19,6 +19,11 @@ public class ScenarioSteps extends BaseSteps {
     @When("^поле \"(.+)\" заполняется значением \"(.+)\"$")
     public void whenFieldIsFilledWithValue(String fieldName, String value) {
         subSteps.stepFieldIsFilledWithValue(fieldName, value);
+    }
+
+    @When("^поле \"(.+)\" содержит значение \"(.+)\"$")
+    public void whenFieldContainsValue(String fieldName, String expectedValue) {
+        subSteps.stepFieldContainsValue(fieldName, expectedValue);
     }
 
     @When("^наводим курсор на поле \"(.+)\"$")

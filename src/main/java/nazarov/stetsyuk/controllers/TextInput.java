@@ -21,11 +21,6 @@ public class TextInput extends BaseElement {
         } else throw new NoSuchElementException("Element is disable: " + element);
     }
 
-    @Override
-    public String getText(String value) {
-        return value;
-    }
-
     public void clearText() {
         if (isEnable()){
             element.clear();

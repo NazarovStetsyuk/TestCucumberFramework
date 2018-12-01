@@ -31,4 +31,8 @@ public abstract class BaseElement implements Element{
         if (isEnable()) element.click();
         else throw new NoSuchElementException("Element is disable: " + element);
     }
+
+    public String getText() {
+        return this.getText();
+    }
 }

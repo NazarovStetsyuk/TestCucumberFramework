@@ -1,8 +1,10 @@
 package nazarov.stetsyuk.controllers;
 
-public interface Element {
+import org.openqa.selenium.WebElement;
 
-    String getText(String value);
+public interface Element{
+
+    String getText();
 
     void setValue(String value);
 
