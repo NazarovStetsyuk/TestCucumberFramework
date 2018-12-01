@@ -1,6 +1,5 @@
 package nazarov.stetsyuk.controllers;
 
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 public class Button extends BaseElement {

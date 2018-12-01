@@ -10,17 +10,11 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BasePage implements InitializingBean {
+public class BasePage {
 
     public static BasePage currentPage;
     static WebDriver driver;
     private List<Element> elements = new ArrayList<>();
-
-    @PostConstruct
-    public void customInit() {
-        System.out.println("Method customInit invoked...");
-    }
-
 
     public List<Element> getElements() {
         return elements;
@@ -40,7 +34,7 @@ public class BasePage implements InitializingBean {
         if (object instanceof Element) {
             return (Element) object;
         } else {
-            throw new RuntimeException(String.format("Object '%s' of Class '%s' is not an instance of TypifiedElement", fieldName, object.getClass()));
+            throw new RuntimeException(String.format("Object '%s' of Class '%s' is not an instance of Element", fieldName, object.getClass()));
         }
     }
 
@@ -51,10 +45,5 @@ public class BasePage implements InitializingBean {
     public void initialize(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(new CustomFieldDecorator(this, driver), this);
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        customInit();
     }
 }

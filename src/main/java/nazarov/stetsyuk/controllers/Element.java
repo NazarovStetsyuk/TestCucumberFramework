@@ -1,6 +1,6 @@
 package nazarov.stetsyuk.controllers;
 
-public interface  Element {
+public interface Element {
 
     String getText(String value);
 

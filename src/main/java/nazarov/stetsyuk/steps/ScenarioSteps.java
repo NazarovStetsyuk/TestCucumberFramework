@@ -21,6 +21,11 @@ public class ScenarioSteps extends BaseSteps {
         subSteps.stepFieldIsFilledWithValue(fieldName, value);
     }
 
+    @When("^наводим курсор на поле \"(.+)\"$")
+    public void whenMoveCursorToField(String fieldName) {
+        subSteps.stepMoveCursorToField(fieldName);
+    }
+
     @Then("^загружена страница \"(.+)\"$")
     public void whenPageIsLoaded(String page) {
         subSteps.stepPageIsLoaded(page);
